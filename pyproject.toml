@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "slackdump"
+version = "0.0.1"
+description = "dump slack data"
+authors = ["sloev <johanned.valbjorn@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+pyppeteer = "^0.0.25"
+
+[tool.poetry.dev-dependencies]
+black = "^19.10b0"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
