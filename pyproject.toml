@@ -1,9 +1,14 @@
 [tool.poetry]
 name = "slackdump"
-version = "0.0.1"
+version = "0.0.2"
 description = "dump slack data"
 authors = ["sloev <johanned.valbjorn@gmail.com>"]
 license = "MIT"
+readme = "README.md"
+include = [
+    "LICENSE",
+    "README.md",
+]
 
 [tool.poetry.dependencies]
 python = "^3.7"
