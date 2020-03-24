@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "slackdump"
-version = "0.0.2"
+version = "0.0.4"
 description = "dump slack data"
 authors = ["sloev <johanned.valbjorn@gmail.com>"]
 license = "MIT"
@@ -9,6 +9,8 @@ include = [
     "LICENSE",
     "README.md",
 ]
+homepage = "https://github.com/sloev/slackdump"
+repository = "https://github.com/sloev/slackdump"
 
 [tool.poetry.dependencies]
 python = "^3.7"
