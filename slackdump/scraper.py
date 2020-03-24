@@ -21,7 +21,7 @@ def patch_pyppeteer():
 patch_pyppeteer()
 
 
-async def scrape(ROOT_URL, MIN_TRIES=40):
+async def scrape(ROOT_URL, DEBUG_URL, MIN_TRIES=40):
     MORE_TO_FETCH = [1] * MIN_TRIES
 
     async def process_response(response):
@@ -42,7 +42,7 @@ async def scrape(ROOT_URL, MIN_TRIES=40):
                 process_response, "last_more_to_fetch", len(MORE_TO_FETCH)
             )
 
-    browser = await connect({"browserWSEndpoint": sys.argv[1]})
+    browser = await connect({"browserWSEndpoint": DEBUG_URL})
     page = await browser.newPage()
     await page.setCacheEnabled(False)
     page.on("response", process_response)
@@ -62,5 +62,5 @@ async def scrape(ROOT_URL, MIN_TRIES=40):
     logging.error("exiting")
 
 
-def run_scraper(ROOT_URL):
-    asyncio.get_event_loop().run_until_complete(scrape(ROOT_URL))
+def run_scraper(ROOT_URL, DEBUG_URL):
+    asyncio.get_event_loop().run_until_complete(scrape(ROOT_URL, DEBUG_URL))

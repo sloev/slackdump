@@ -1,6 +1,9 @@
 import subprocess
 import json
 from contextlib import contextmanager
+import time
+import requests
+import logging
 
 
 @contextmanager
@@ -21,14 +24,23 @@ def osx_chrome(port=9999):
         " ", "\ "
     )
     headless_chrome_process = (
-        f"{browser_path} --headless --disable-gpu --remote-debugging-port={port}"
+        f"{browser_path} --remote-debugging-port={port}"
     )
-
-    proc = subprocess.check_output(screen_shot_command, shell=True)
-
-    yield
-
     try:
-        proc.kill()
-    except:
-        pass
+        proc = subprocess.Popen(headless_chrome_process, stderr=subprocess.PIPE, shell=True)
+        debug_url = None
+        for i in range(50):
+            line = proc.stderr.readline().decode('utf-8').lower()
+            if 'devtools listening on ' in  line:
+                debug_url = line.split('devtools listening on ', 1)[1].strip()
+                logging.warning(f"Found debug url: '{debug_url}'")
+                break
+        if debug_url is None:
+            raise ValueError('couldnt figure out debug_url')
+        time.sleep(5)
+        yield debug_url
+    finally:
+        try:
+            proc.kill()
+        except:
+            pass

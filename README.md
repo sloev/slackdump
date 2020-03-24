@@ -16,6 +16,13 @@ $ pip install slackdump
 
 ## Usage
 
+Before running the `slackdump` command you need to
+
+* be logged into slack in chrome
+* close chrome completely
+
+**for osx**
+
 ```bash
 $ slackdump --ROOTURL=https://somewhere.slack.com/messages/66666666 > output.json
 ```

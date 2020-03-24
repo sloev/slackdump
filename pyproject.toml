@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "slackdump"
-version = "0.0.4"
+version = "0.0.5"
 description = "dump slack data"
 authors = ["sloev <johanned.valbjorn@gmail.com>"]
 license = "MIT"
