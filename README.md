@@ -1,5 +1,7 @@
 # Slack Dump
 
+<a href="https://www.buymeacoffee.com/sloev" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-pink.png" alt="Buy Me A Coffee" height="51px" width="217px"></a>
+
 [![Latest Version](https://img.shields.io/pypi/v/slackdump.svg)](https://pypi.python.org/pypi/slackdump)
 
 Dump slack data via chrome browser, and do analytics on it
